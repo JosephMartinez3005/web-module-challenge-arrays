@@ -45,9 +45,11 @@ Use the copy function below to do the following:
     2. Return a copy of the received array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
+
+function copy(array){
+    return [...array];
 }    
+console.log(copy(originalFlavors));
 
 
 
@@ -64,8 +66,12 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+function is31Flavors(array){
+    if(array.length === 31){
+        return true;
+    }else {
+        return false;
+    }
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -80,10 +86,11 @@ Use the addFlavor function below to do the following:
     For example: addFlavor("Rainbow Sherbert", originalFlavors) should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
-   /*your code here*/
-}
+function addFlavor(array, newFlavor){
+    array.unshift(newFlavor);
+    return array;
+} 
+addFlavor(originalFlavors, "Rainbow Sherbert");
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -96,12 +103,15 @@ Use the removeLastFlavor function below to do the following:
 
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
-
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
-}
+console.log(originalFlavors);
 
 
+function removeLastFlavor(array){
+    array.pop();
+    return array
+ }
+ 
+ removeLastFlavor(originalFlavors);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that returns a flavor at a given index in the array.
@@ -113,9 +123,8 @@ Use the getFlavorByIndex function below to do the following:
 
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
-
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
+function getFlavorByIndex(array, num){
+    return array[num];
 }
 
 
@@ -134,11 +143,15 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(array, flavor){
+    for(let i = 1; i < array.length; i++){
+        if(array[i] === flavor){
+            array.splice(i,1)
+            return array;
+        }
+    }
+
 }
-
-
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
